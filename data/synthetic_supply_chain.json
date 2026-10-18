@@ -1,0 +1,470 @@
+{
+  "metadata": {
+    "dataset_name": "SupplyShield AI Synthetic Automotive/Electronics Supply Chain",
+    "version": "1.0.0",
+    "is_synthetic": true,
+    "description": "Synthetic multi-tier supply chain data containing disrupted and alternative suppliers, components, factories, products, customer orders, shipments, and risk events for hackathon demonstration."
+  },
+  "locations": [
+    { "id": "LOC-TW", "name": "Hsinchu Science Park", "country": "Taiwan", "region": "APAC" },
+    { "id": "LOC-KR", "name": "Seoul High-Tech Valley", "country": "South Korea", "region": "APAC" },
+    { "id": "LOC-DE-MUC", "name": "Munich Industrial Park", "country": "Germany", "region": "Europe" },
+    { "id": "LOC-DE-DRE", "name": "Silicon Saxony Dresden", "country": "Germany", "region": "Europe" },
+    { "id": "LOC-US-ATX", "name": "Austin Innovation Corridor", "country": "United States", "region": "Americas" },
+    { "id": "LOC-US-SJC", "name": "Silicon Valley San Jose", "country": "United States", "region": "Americas" },
+    { "id": "LOC-JP-YOK", "name": "Yokohama Tech District", "country": "Japan", "region": "APAC" },
+    { "id": "LOC-SG", "name": "Jurong Industrial Hub", "country": "Singapore", "region": "APAC" }
+  ],
+  "suppliers": [
+    {
+      "id": "SUP-001",
+      "name": "Apex Semiconductors",
+      "status": "DISRUPTED",
+      "capacity": 10000,
+      "lead_time_days": 14,
+      "risk_score": 0.85,
+      "location_id": "LOC-TW",
+      "description": "Primary Tier-1 microcontroller fabricator currently experiencing complete shutdown due to typhoon flooding.",
+      "is_synthetic": true
+    },
+    {
+      "id": "SUP-002",
+      "name": "Nexus Microelectronics",
+      "status": "ACTIVE",
+      "capacity": 12000,
+      "lead_time_days": 10,
+      "risk_score": 0.15,
+      "location_id": "LOC-KR",
+      "description": "Tier-1 certified fabricator with high available capacity and drop-in automotive grade MCU alternative.",
+      "is_synthetic": true
+    },
+    {
+      "id": "SUP-003",
+      "name": "EuroSilicon Systems",
+      "status": "ACTIVE",
+      "capacity": 6500,
+      "lead_time_days": 18,
+      "risk_score": 0.22,
+      "location_id": "LOC-DE-DRE",
+      "description": "European specialty fab with pin-compatible automotive components, moderate capacity.",
+      "is_synthetic": true
+    },
+    {
+      "id": "SUP-004",
+      "name": "Vanguard Legacy Chips",
+      "status": "ACTIVE",
+      "capacity": 1500,
+      "lead_time_days": 35,
+      "risk_score": 0.65,
+      "location_id": "LOC-US-SJC",
+      "description": "Legacy microchip manufacturer. Lacks AEC-Q100 certification and has insufficient capacity.",
+      "is_synthetic": true
+    },
+    {
+      "id": "SUP-005",
+      "name": "Pacific SensorTech",
+      "status": "ACTIVE",
+      "capacity": 8000,
+      "lead_time_days": 12,
+      "risk_score": 0.18,
+      "location_id": "LOC-JP-YOK",
+      "description": "High-precision optical LiDAR and sensor component manufacturer.",
+      "is_synthetic": true
+    },
+    {
+      "id": "SUP-006",
+      "name": "Titan Power & Battery Systems",
+      "status": "ACTIVE",
+      "capacity": 15000,
+      "lead_time_days": 8,
+      "risk_score": 0.12,
+      "location_id": "LOC-SG",
+      "description": "High-volume power management ASIC and capacitor manufacturer.",
+      "is_synthetic": true
+    }
+  ],
+  "components": [
+    {
+      "id": "CMP-101",
+      "name": "Automotive Microcontroller MCU-v2",
+      "category": "Semiconductors",
+      "criticality": "CRITICAL",
+      "unit_cost": 45.50,
+      "stock_quantity": 450,
+      "safety_stock": 2000,
+      "qualification_standard": "AEC-Q100 Grade 1",
+      "is_synthetic": true
+    },
+    {
+      "id": "CMP-102",
+      "name": "Automotive Microcontroller MCU-v2-PinCompatible",
+      "category": "Semiconductors",
+      "criticality": "HIGH",
+      "unit_cost": 48.00,
+      "stock_quantity": 3200,
+      "safety_stock": 1500,
+      "qualification_standard": "AEC-Q100 Grade 1",
+      "is_synthetic": true
+    },
+    {
+      "id": "CMP-103",
+      "name": "Legacy Industrial MCU-80",
+      "category": "Semiconductors",
+      "criticality": "LOW",
+      "unit_cost": 28.00,
+      "stock_quantity": 5000,
+      "safety_stock": 1000,
+      "qualification_standard": "Industrial Non-Automotive",
+      "is_synthetic": true
+    },
+    {
+      "id": "CMP-201",
+      "name": "Li-Ion Battery Management ASIC",
+      "category": "Power Electronics",
+      "criticality": "HIGH",
+      "unit_cost": 62.00,
+      "stock_quantity": 5400,
+      "safety_stock": 2500,
+      "qualification_standard": "ISO 26262 ASIL-D",
+      "is_synthetic": true
+    },
+    {
+      "id": "CMP-301",
+      "name": "Solid-State LiDAR Optical Sensor",
+      "category": "Sensors",
+      "criticality": "HIGH",
+      "unit_cost": 185.00,
+      "stock_quantity": 1800,
+      "safety_stock": 800,
+      "qualification_standard": "AEC-Q102",
+      "is_synthetic": true
+    },
+    {
+      "id": "CMP-401",
+      "name": "Ultra-Capacitor Bank 48V Module",
+      "category": "Energy Storage",
+      "criticality": "MEDIUM",
+      "unit_cost": 95.00,
+      "stock_quantity": 4200,
+      "safety_stock": 1200,
+      "qualification_standard": "UN 38.3",
+      "is_synthetic": true
+    },
+    {
+      "id": "CMP-501",
+      "name": "High-Speed CAN-FD Transceiver IC",
+      "category": "Communications",
+      "criticality": "MEDIUM",
+      "unit_cost": 12.50,
+      "stock_quantity": 12000,
+      "safety_stock": 4000,
+      "qualification_standard": "AEC-Q100 Grade 0",
+      "is_synthetic": true
+    }
+  ],
+  "factories": [
+    {
+      "id": "FAC-001",
+      "name": "Munich Central Assembly Plant",
+      "location_id": "LOC-DE-MUC",
+      "capacity_utilization": 0.88,
+      "monthly_vehicle_capacity": 4500,
+      "is_synthetic": true
+    },
+    {
+      "id": "FAC-002",
+      "name": "Austin Gigafactory Central",
+      "location_id": "LOC-US-ATX",
+      "capacity_utilization": 0.92,
+      "monthly_vehicle_capacity": 6000,
+      "is_synthetic": true
+    },
+    {
+      "id": "FAC-003",
+      "name": "Yokohama Smart Mobility Plant",
+      "location_id": "LOC-JP-YOK",
+      "capacity_utilization": 0.74,
+      "monthly_vehicle_capacity": 3000,
+      "is_synthetic": true
+    }
+  ],
+  "products": [
+    {
+      "id": "PRD-001",
+      "name": "CyberDrive EV Sedan",
+      "category": "Passenger EV",
+      "priority": "HIGH",
+      "unit_price": 55000.00,
+      "is_synthetic": true
+    },
+    {
+      "id": "PRD-002",
+      "name": "AeroTruck Commercial Heavy EV",
+      "category": "Commercial Transport",
+      "priority": "CRITICAL",
+      "unit_price": 120000.00,
+      "is_synthetic": true
+    },
+    {
+      "id": "PRD-003",
+      "name": "RoboTaxi Autonomous Urban Shuttle",
+      "category": "Autonomous Mobility",
+      "priority": "CRITICAL",
+      "unit_price": 85000.00,
+      "is_synthetic": true
+    },
+    {
+      "id": "PRD-004",
+      "name": "VoltGrid Modular Energy Wall 15kWh",
+      "category": "Energy Storage",
+      "priority": "MEDIUM",
+      "unit_price": 8500.00,
+      "is_synthetic": true
+    },
+    {
+      "id": "PRD-005",
+      "name": "FleetTrack Edge Telematics Hub",
+      "category": "Commercial IoT",
+      "priority": "LOW",
+      "unit_price": 1250.00,
+      "is_synthetic": true
+    }
+  ],
+  "customer_orders": [
+    {
+      "id": "ORD-801",
+      "order_number": "PO-2026-NORDIC-801",
+      "customer_name": "Nordic Fleet Solutions AB",
+      "product_id": "PRD-001",
+      "quantity": 250,
+      "priority": "HIGH",
+      "status": "CONFIRMED",
+      "days_until_due": 20,
+      "revenue": 13750000.00,
+      "is_synthetic": true
+    },
+    {
+      "id": "ORD-802",
+      "order_number": "PO-2026-METRO-802",
+      "customer_name": "Metro Logistics Global",
+      "product_id": "PRD-002",
+      "quantity": 80,
+      "priority": "CRITICAL",
+      "status": "PROCESSING",
+      "days_until_due": 14,
+      "revenue": 9600000.00,
+      "is_synthetic": true
+    },
+    {
+      "id": "ORD-803",
+      "order_number": "PO-2026-ALPINE-803",
+      "customer_name": "Alpine CarSharing Europe",
+      "product_id": "PRD-001",
+      "quantity": 180,
+      "priority": "HIGH",
+      "status": "CONFIRMED",
+      "days_until_due": 30,
+      "revenue": 9900000.00,
+      "is_synthetic": true
+    },
+    {
+      "id": "ORD-804",
+      "order_number": "PO-2026-PACIFIC-804",
+      "customer_name": "Pacific Transit Authority",
+      "product_id": "PRD-003",
+      "quantity": 60,
+      "priority": "CRITICAL",
+      "status": "CONFIRMED",
+      "days_until_due": 18,
+      "revenue": 5100000.00,
+      "is_synthetic": true
+    },
+    {
+      "id": "ORD-805",
+      "order_number": "PO-2026-CALCLEAN-805",
+      "customer_name": "California Clean Freight",
+      "product_id": "PRD-002",
+      "quantity": 110,
+      "priority": "CRITICAL",
+      "status": "PROCESSING",
+      "days_until_due": 24,
+      "revenue": 13200000.00,
+      "is_synthetic": true
+    },
+    {
+      "id": "ORD-806",
+      "order_number": "PO-2026-RHINE-806",
+      "customer_name": "Rhine Energy Utilities",
+      "product_id": "PRD-004",
+      "quantity": 400,
+      "priority": "MEDIUM",
+      "status": "PROCESSING",
+      "days_until_due": 35,
+      "revenue": 3400000.00,
+      "is_synthetic": true
+    },
+    {
+      "id": "ORD-807",
+      "order_number": "PO-2026-BAVARIA-807",
+      "customer_name": "Bavaria Luxury Lease",
+      "product_id": "PRD-001",
+      "quantity": 95,
+      "priority": "HIGH",
+      "status": "CONFIRMED",
+      "days_until_due": 22,
+      "revenue": 5225000.00,
+      "is_synthetic": true
+    },
+    {
+      "id": "ORD-808",
+      "order_number": "PO-2026-TOKYO-808",
+      "customer_name": "Tokyo Autonomous Delivery",
+      "product_id": "PRD-003",
+      "quantity": 70,
+      "priority": "HIGH",
+      "status": "CONFIRMED",
+      "days_until_due": 28,
+      "revenue": 5950000.00,
+      "is_synthetic": true
+    },
+    {
+      "id": "ORD-809",
+      "order_number": "PO-2026-IOTGLOBAL-809",
+      "customer_name": "Global IoT Asset Track",
+      "product_id": "PRD-005",
+      "quantity": 600,
+      "priority": "LOW",
+      "status": "CONFIRMED",
+      "days_until_due": 45,
+      "revenue": 750000.00,
+      "is_synthetic": true
+    }
+  ],
+  "shipments": [
+    {
+      "id": "SHP-301",
+      "tracking_number": "TRK-APEX-TW-MUNICH-301",
+      "supplier_id": "SUP-001",
+      "component_id": "CMP-101",
+      "quantity": 4000,
+      "status": "DELAYED",
+      "eta_days": 28,
+      "original_eta_days": 7,
+      "is_synthetic": true
+    },
+    {
+      "id": "SHP-302",
+      "tracking_number": "TRK-NEXUS-KR-AUSTIN-302",
+      "supplier_id": "SUP-002",
+      "component_id": "CMP-102",
+      "quantity": 5000,
+      "status": "IN_TRANSIT",
+      "eta_days": 6,
+      "original_eta_days": 7,
+      "is_synthetic": true
+    },
+    {
+      "id": "SHP-303",
+      "tracking_number": "TRK-TITAN-SG-MUNICH-303",
+      "supplier_id": "SUP-006",
+      "component_id": "CMP-201",
+      "quantity": 6000,
+      "status": "IN_TRANSIT",
+      "eta_days": 8,
+      "original_eta_days": 8,
+      "is_synthetic": true
+    },
+    {
+      "id": "SHP-304",
+      "tracking_number": "TRK-PACIFIC-JP-YOKO-304",
+      "supplier_id": "SUP-005",
+      "component_id": "CMP-301",
+      "quantity": 1800,
+      "status": "IN_TRANSIT",
+      "eta_days": 4,
+      "original_eta_days": 5,
+      "is_synthetic": true
+    }
+  ],
+  "risk_events": [
+    {
+      "id": "EVT-001",
+      "event_type": "Super Typhoon & Fab Grid Disruption",
+      "severity": "CRITICAL",
+      "severity_score": 0.95,
+      "location_id": "LOC-TW",
+      "status": "ACTIVE",
+      "description": "Category 5 typhoon causing localized flooding, cleanroom contamination, and emergency power shutdown at Hsinchu fabrication facilities.",
+      "affected_supplier_ids": ["SUP-001"],
+      "affected_shipment_ids": ["SHP-301"],
+      "is_synthetic": true
+    },
+    {
+      "id": "EVT-002",
+      "event_type": "Maritime Canal Chokepoint Congestion",
+      "severity": "MEDIUM",
+      "severity_score": 0.45,
+      "location_id": "LOC-SG",
+      "status": "MONITORING",
+      "description": "Heavy marine congestion and container vessel rerouting adding 5-8 days transit delay on Southeast Asian trade lanes.",
+      "affected_supplier_ids": [],
+      "affected_shipment_ids": ["SHP-303"],
+      "is_synthetic": true
+    }
+  ],
+  "relationships": {
+    "supplies": [
+      { "supplier_id": "SUP-001", "component_id": "CMP-101", "lead_time_days": 14, "daily_capacity": 500, "unit_cost": 45.50, "is_primary": true },
+      { "supplier_id": "SUP-002", "component_id": "CMP-102", "lead_time_days": 10, "daily_capacity": 600, "unit_cost": 48.00, "is_primary": true },
+      { "supplier_id": "SUP-003", "component_id": "CMP-102", "lead_time_days": 18, "daily_capacity": 300, "unit_cost": 50.00, "is_primary": false },
+      { "supplier_id": "SUP-004", "component_id": "CMP-103", "lead_time_days": 35, "daily_capacity": 50, "unit_cost": 28.00, "is_primary": true },
+      { "supplier_id": "SUP-005", "component_id": "CMP-301", "lead_time_days": 12, "daily_capacity": 250, "unit_cost": 185.00, "is_primary": true },
+      { "supplier_id": "SUP-006", "component_id": "CMP-201", "lead_time_days": 8, "daily_capacity": 800, "unit_cost": 62.00, "is_primary": true },
+      { "supplier_id": "SUP-006", "component_id": "CMP-401", "lead_time_days": 10, "daily_capacity": 400, "unit_cost": 95.00, "is_primary": true },
+      { "supplier_id": "SUP-002", "component_id": "CMP-501", "lead_time_days": 6, "daily_capacity": 1500, "unit_cost": 12.50, "is_primary": true }
+    ],
+    "used_in": [
+      { "component_id": "CMP-101", "product_id": "PRD-001", "quantity_per_unit": 2 },
+      { "component_id": "CMP-101", "product_id": "PRD-002", "quantity_per_unit": 4 },
+      { "component_id": "CMP-101", "product_id": "PRD-003", "quantity_per_unit": 3 },
+      { "component_id": "CMP-201", "product_id": "PRD-001", "quantity_per_unit": 1 },
+      { "component_id": "CMP-201", "product_id": "PRD-002", "quantity_per_unit": 2 },
+      { "component_id": "CMP-201", "product_id": "PRD-004", "quantity_per_unit": 3 },
+      { "component_id": "CMP-301", "product_id": "PRD-002", "quantity_per_unit": 2 },
+      { "component_id": "CMP-301", "product_id": "PRD-003", "quantity_per_unit": 4 },
+      { "component_id": "CMP-401", "product_id": "PRD-002", "quantity_per_unit": 1 },
+      { "component_id": "CMP-401", "product_id": "PRD-004", "quantity_per_unit": 2 },
+      { "component_id": "CMP-501", "product_id": "PRD-001", "quantity_per_unit": 4 },
+      { "component_id": "CMP-501", "product_id": "PRD-003", "quantity_per_unit": 6 },
+      { "component_id": "CMP-501", "product_id": "PRD-005", "quantity_per_unit": 1 }
+    ],
+    "produces": [
+      { "factory_id": "FAC-001", "product_id": "PRD-001" },
+      { "factory_id": "FAC-001", "product_id": "PRD-004" },
+      { "factory_id": "FAC-002", "product_id": "PRD-001" },
+      { "factory_id": "FAC-002", "product_id": "PRD-002" },
+      { "factory_id": "FAC-003", "product_id": "PRD-003" },
+      { "factory_id": "FAC-003", "product_id": "PRD-005" }
+    ],
+    "alternative_to": [
+      {
+        "from_supplier_id": "SUP-002",
+        "to_supplier_id": "SUP-001",
+        "component_id": "CMP-102",
+        "target_component_id": "CMP-101",
+        "compatibility_score": 0.98,
+        "verified": true,
+        "verification_notes": "Nexus MCU-v2-PinCompatible is pin-for-pin drop-in replacement with identical firmware ABI and AEC-Q100 Grade 1 qualification."
+      },
+      {
+        "from_supplier_id": "SUP-003",
+        "to_supplier_id": "SUP-001",
+        "component_id": "CMP-102",
+        "target_component_id": "CMP-101",
+        "compatibility_score": 0.91,
+        "verified": true,
+        "verification_notes": "EuroSilicon MCU is functionally compatible with same footprint, requires minor firmware configuration update."
+      }
+    ]
+  }
+}
