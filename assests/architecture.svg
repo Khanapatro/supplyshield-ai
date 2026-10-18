@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="810" viewBox="0 0 1200 810" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#0d2233"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#00e5ff"/>
+    </marker>
+    <style>
+      .flow { stroke: #00e5ff; stroke-width: 2.2; fill: none; stroke-dasharray: 7 6; animation: dash 1.4s linear infinite; }
+      .glow { animation: glow 3s ease-in-out infinite; }
+      .layer { font-size: 13px; letter-spacing: 2px; fill: #7fdcff; font-weight: 700; }
+      .t { font-size: 17px; font-weight: 700; fill: #ffffff; }
+      .s { font-size: 12.5px; fill: #bcd9e8; }
+      .tool { font-size: 12.5px; font-weight: 600; fill: #ffffff; font-family: Consolas, Menlo, monospace; }
+      @keyframes dash { to { stroke-dashoffset: -26; } }
+      @keyframes glow { 0%,100% { opacity: .75; } 50% { opacity: 1; } }
+    </style>
+  </defs>
+
+  <rect width="1200" height="810" rx="18" fill="url(#bg)"/>
+  <text x="600" y="34" text-anchor="middle" font-size="22" font-weight="800" fill="#ffffff">SupplyShield AI · System Architecture</text>
+
+  <!-- LAYER 1: CLIENTS -->
+  <text x="60" y="62" class="layer">1 · CLIENTS</text>
+  <g>
+    <rect x="60" y="72" width="320" height="76" rx="12" fill="#12304a" stroke="#2b6a94"/>
+    <text x="220" y="102" text-anchor="middle" class="t">Incident Commander CLI</text>
+    <text x="220" y="125" text-anchor="middle" class="s">Interactive terminal for engineers</text>
+    <rect x="440" y="72" width="320" height="76" rx="12" fill="#2a1f4d" stroke="#7c3aed"/>
+    <text x="600" y="102" text-anchor="middle" class="t">MCP Clients</text>
+    <text x="600" y="125" text-anchor="middle" class="s">Cursor · Claude Desktop · agents</text>
+    <rect x="820" y="72" width="320" height="76" rx="12" fill="#0f3b3a" stroke="#14b8a6"/>
+    <text x="980" y="102" text-anchor="middle" class="t">Swagger UI</text>
+    <text x="980" y="125" text-anchor="middle" class="s">Interactive API docs at /docs</text>
+  </g>
+
+  <!-- arrows 1→2 -->
+  <g marker-end="url(#arrow)">
+    <path class="flow" d="M220 148 L220 208"/>
+    <path class="flow" d="M600 148 L600 208"/>
+    <path class="flow" d="M980 148 L980 208"/>
+  </g>
+
+  <!-- LAYER 2: INTERFACE -->
+  <text x="60" y="200" class="layer">2 · INTERFACE LAYER</text>
+  <g>
+    <rect x="60" y="212" width="320" height="78" rx="12" fill="#12304a" stroke="#2b6a94"/>
+    <text x="220" y="243" text-anchor="middle" class="t">agent_cli.py</text>
+    <text x="220" y="267" text-anchor="middle" class="s">Orchestrates the incident flow</text>
+    <rect x="440" y="212" width="320" height="78" rx="12" fill="#2a1f4d" stroke="#7c3aed"/>
+    <text x="600" y="243" text-anchor="middle" class="t">MCP Server</text>
+    <text x="600" y="267" text-anchor="middle" class="s">app/mcp_server.py · JSON-RPC over stdio</text>
+    <rect x="820" y="212" width="320" height="78" rx="12" fill="#0f3b3a" stroke="#14b8a6"/>
+    <text x="980" y="243" text-anchor="middle" class="t">FastAPI Backend</text>
+    <text x="980" y="267" text-anchor="middle" class="s">app/main.py · REST endpoints</text>
+  </g>
+
+  <!-- arrows 2→3 -->
+  <g marker-end="url(#arrow)">
+    <path class="flow" d="M220 290 L220 352"/>
+    <path class="flow" d="M600 290 L600 352"/>
+    <path class="flow" d="M980 290 L980 352"/>
+  </g>
+
+  <!-- LAYER 3: AGENT TOOLS -->
+  <text x="60" y="340" class="layer">3 · AGENT TOOLS  (graph queries exposed as callable tools)</text>
+  <rect x="60" y="352" width="1080" height="112" rx="14" fill="#0e2a3f" stroke="#00e5ff" stroke-opacity=".5" class="glow"/>
+  <g>
+    <rect x="75" y="388" width="160" height="56" rx="9" fill="#123a55" stroke="#2b6a94"/>
+    <text x="155" y="412" text-anchor="middle" class="tool">get_supply_chain</text>
+    <text x="155" y="430" text-anchor="middle" class="tool">_overview</text>
+    <rect x="250" y="388" width="160" height="56" rx="9" fill="#123a55" stroke="#2b6a94"/>
+    <text x="330" y="412" text-anchor="middle" class="tool">analyze</text>
+    <text x="330" y="430" text-anchor="middle" class="tool">_disruption</text>
+    <rect x="425" y="388" width="160" height="56" rx="9" fill="#123a55" stroke="#2b6a94"/>
+    <text x="505" y="412" text-anchor="middle" class="tool">find_compatible</text>
+    <text x="505" y="430" text-anchor="middle" class="tool">_alternatives</text>
+    <rect x="600" y="388" width="160" height="56" rx="9" fill="#123a55" stroke="#2b6a94"/>
+    <text x="680" y="412" text-anchor="middle" class="tool">recommend</text>
+    <text x="680" y="430" text-anchor="middle" class="tool">_recovery_plan</text>
+    <rect x="775" y="388" width="160" height="56" rx="9" fill="#123a55" stroke="#2b6a94"/>
+    <text x="855" y="412" text-anchor="middle" class="tool">execute_recovery</text>
+    <text x="855" y="430" text-anchor="middle" class="tool">_action</text>
+    <rect x="950" y="388" width="160" height="56" rx="9" fill="#123a55" stroke="#2b6a94"/>
+    <text x="1030" y="412" text-anchor="middle" class="tool">get_agent</text>
+    <text x="1030" y="430" text-anchor="middle" class="tool">_decision_history</text>
+  </g>
+
+  <!-- arrows 3→4 -->
+  <g marker-end="url(#arrow)">
+    <path class="flow" d="M320 464 L320 522"/>
+    <path class="flow" d="M860 464 L860 522"/>
+  </g>
+
+  <!-- LAYER 4: REASONING -->
+  <text x="60" y="510" class="layer">4 · REASONING</text>
+  <g>
+    <rect x="60" y="522" width="520" height="92" rx="12" fill="#3b1d2a" stroke="#e4003b"/>
+    <text x="320" y="552" text-anchor="middle" class="t">Deterministic Scoring Engine</text>
+    <text x="320" y="574" text-anchor="middle" class="s">Hard constraints: compatibility ≥ 0.80, capacity ≥ 2,000</text>
+    <text x="320" y="594" text-anchor="middle" class="s">Weighted score: 40 / 30 / 20 / 10</text>
+    <rect x="620" y="522" width="520" height="92" rx="12" fill="#123a55" stroke="#2b6a94"/>
+    <text x="880" y="552" text-anchor="middle" class="t">Cypher Query Layer</text>
+    <text x="880" y="574" text-anchor="middle" class="s">Multi-hop impact traversal · alternative discovery</text>
+    <text x="880" y="594" text-anchor="middle" class="s">Action write-back · decision-history reads</text>
+  </g>
+
+  <!-- arrows 4→5 (bidirectional) -->
+  <g marker-end="url(#arrow)" marker-start="url(#arrow)">
+    <path class="flow" d="M320 614 L320 672"/>
+    <path class="flow" d="M700 614 L700 672"/>
+  </g>
+
+  <!-- LAYER 5: DATA -->
+  <text x="60" y="660" class="layer">5 · DATA LAYER</text>
+  <g>
+    <rect x="60" y="672" width="720" height="108" rx="14" fill="#4a1220" stroke="#e4003b" stroke-width="2" class="glow"/>
+    <text x="420" y="708" text-anchor="middle" font-size="20" font-weight="800" fill="#ffffff">FalkorDB · graph "supplyshield"</text>
+    <text x="420" y="734" text-anchor="middle" class="s">In-memory graph engine · index-free adjacency · Cypher</text>
+    <text x="420" y="756" text-anchor="middle" class="s">44 nodes · 58 edges · RecoveryAction memory persisted here · port 6379</text>
+    <rect x="840" y="672" width="300" height="108" rx="14" fill="#12304a" stroke="#2b6a94"/>
+    <text x="990" y="708" text-anchor="middle" class="t">FalkorDB Browser</text>
+    <text x="990" y="734" text-anchor="middle" class="s">Visual graph explorer</text>
+    <text x="990" y="756" text-anchor="middle" class="s">http://localhost:3000</text>
+  </g>
+  <path class="flow" d="M840 726 L782 726" marker-end="url(#arrow)"/>
+  <text x="811" y="716" text-anchor="middle" font-size="11" fill="#7fdcff">reads</text>
+</svg>

@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#0d2233"/>
+    </linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8fd9ff"/>
+    </marker>
+    <style>
+      .e { stroke: #8fd9ff; stroke-width: 2; fill: none; stroke-dasharray: 6 5; animation: dash 1.5s linear infinite; }
+      .lbl { font-size: 11.5px; font-weight: 700; fill: #ffd37a; font-family: Consolas, Menlo, monospace; }
+      .n { font-size: 16px; font-weight: 700; fill: #ffffff; }
+      .sub { font-size: 11.5px; fill: #e6f4ff; opacity: .85; }
+      .node { animation: pulse 3.2s ease-in-out infinite; }
+      @keyframes dash { to { stroke-dashoffset: -22; } }
+      @keyframes pulse { 0%,100% { opacity: .85; } 50% { opacity: 1; } }
+    </style>
+  </defs>
+
+  <rect width="1200" height="540" rx="18" fill="url(#bg)"/>
+  <text x="600" y="32" text-anchor="middle" font-size="22" font-weight="800" fill="#ffffff">SupplyShield AI · Graph Data Model</text>
+
+  <!-- EDGES -->
+  <g marker-end="url(#arr)">
+    <path class="e" d="M208 98 L422 202"/>
+    <path class="e" d="M150 98 L150 202"/>
+    <path class="e" d="M235 230 L395 230"/>
+    <path class="e" d="M198 258 L431 392"/>
+    <path class="e" d="M480 258 L480 392"/>
+    <path class="e" d="M538 202 L752 98"/>
+    <path class="e" d="M1041 202 L859 98"/>
+    <path class="e" d="M565 420 L725 420"/>
+    <path class="e" d="M1049 258 L851 392"/>
+    <path class="e" d="M975 420 L895 420"/>
+    <path class="e" d="M725 220 L565 220"/>
+    <path class="e" d="M725 242 L565 242"/>
+  </g>
+
+  <!-- EDGE LABELS -->
+  <g text-anchor="middle">
+    <text x="300" y="140" class="lbl">AFFECTS</text>
+    <text x="150" y="152" class="lbl" text-anchor="start" dx="12">AFFECTS</text>
+    <text x="315" y="220" class="lbl">FROM_SUPPLIER</text>
+    <text x="300" y="338" class="lbl">CARRIES</text>
+    <text x="480" y="330" class="lbl" text-anchor="start" dx="12">SUPPLIES</text>
+    <text x="670" y="140" class="lbl">LOCATED_IN</text>
+    <text x="965" y="140" class="lbl">LOCATED_IN</text>
+    <text x="645" y="410" class="lbl">USED_IN</text>
+    <text x="1000" y="335" class="lbl">PRODUCES</text>
+    <text x="935" y="444" class="lbl">ORDERS</text>
+    <text x="645" y="212" class="lbl">REPLACES</text>
+    <text x="645" y="262" class="lbl">CONTRACTS_TO</text>
+  </g>
+
+  <!-- NODES -->
+  <g class="node">
+    <rect x="65" y="42" width="170" height="56" rx="12" fill="#7f1d1d" stroke="#f87171" stroke-width="2"/>
+    <text x="150" y="66" text-anchor="middle" class="n">⚡ RiskEvent</text>
+    <text x="150" y="86" text-anchor="middle" class="sub">Typhoon · Chokepoint</text>
+
+    <rect x="65" y="202" width="170" height="56" rx="12" fill="#78350f" stroke="#fbbf24" stroke-width="2"/>
+    <text x="150" y="226" text-anchor="middle" class="n">🚢 Shipment</text>
+    <text x="150" y="246" text-anchor="middle" class="sub">In-transit cargo</text>
+
+    <rect x="395" y="202" width="170" height="56" rx="12" fill="#0e4a5c" stroke="#22d3ee" stroke-width="2"/>
+    <text x="480" y="226" text-anchor="middle" class="n">🏭 Supplier</text>
+    <text x="480" y="246" text-anchor="middle" class="sub">Tier-1 / Tier-2</text>
+
+    <rect x="725" y="42" width="170" height="56" rx="12" fill="#334155" stroke="#94a3b8" stroke-width="2"/>
+    <text x="810" y="66" text-anchor="middle" class="n">📍 Location</text>
+    <text x="810" y="86" text-anchor="middle" class="sub">Country / region</text>
+
+    <rect x="1005" y="202" width="170" height="56" rx="12" fill="#7c2d12" stroke="#fb923c" stroke-width="2"/>
+    <text x="1090" y="226" text-anchor="middle" class="n">🏗️ Factory</text>
+    <text x="1090" y="246" text-anchor="middle" class="sub">Assembly plants</text>
+
+    <rect x="725" y="202" width="170" height="56" rx="12" fill="#14532d" stroke="#4ade80" stroke-width="2"/>
+    <text x="810" y="226" text-anchor="middle" class="n">✅ RecoveryAction</text>
+    <text x="810" y="246" text-anchor="middle" class="sub">Agent decision memory</text>
+
+    <rect x="395" y="392" width="170" height="56" rx="12" fill="#4c1d95" stroke="#a78bfa" stroke-width="2"/>
+    <text x="480" y="416" text-anchor="middle" class="n">🔩 Component</text>
+    <text x="480" y="436" text-anchor="middle" class="sub">MCU · Battery · LiDAR</text>
+
+    <rect x="725" y="392" width="170" height="56" rx="12" fill="#064e3b" stroke="#34d399" stroke-width="2"/>
+    <text x="810" y="416" text-anchor="middle" class="n">🚗 Product</text>
+    <text x="810" y="436" text-anchor="middle" class="sub">EVs · Shuttles</text>
+
+    <rect x="975" y="392" width="170" height="56" rx="12" fill="#831843" stroke="#f472b6" stroke-width="2"/>
+    <text x="1060" y="416" text-anchor="middle" class="n">📦 CustomerOrder</text>
+    <text x="1060" y="436" text-anchor="middle" class="sub">PO · Revenue · Due date</text>
+  </g>
+
+  <!-- NOTE -->
+  <text x="600" y="500" text-anchor="middle" font-size="13" fill="#bcd9e8">Supplier ──ALTERNATIVE_TO──▶ Supplier   ·   Supplier and Factory are both LOCATED_IN a Location   ·   RecoveryAction links the disrupted and replacement suppliers</text>
+</svg>
