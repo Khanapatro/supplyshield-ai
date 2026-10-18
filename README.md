@@ -166,6 +166,11 @@ SupplyShield AI removes all four: one connected model, instant multi-hop answers
 
 ---
 
+## Screenshots
+
+<img width="1917" height="901" alt="Screenshot 2026-10-18 170430" src="https://github.com/user-attachments/assets/b96e349c-e0bd-4c3a-958c-4ff99d86e3a3" />
+
+
 ## 🔍 What the Graph Queries Do
 
 Three core queries power the agent. In plain terms:
